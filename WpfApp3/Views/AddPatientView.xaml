@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp3.Views.AddPatientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3.ViewModels"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Добавить пациента"
+        Height="400" Width="636"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        materialDesign:ColorZoneAssist.Mode="PrimaryMid" Icon="/Views/Ico.png">
+
+    <Grid Background="{DynamicResource MaterialDesignPaper}" Width="600" Height="420">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая сторона -->
+        <StackPanel Grid.Column="0" Margin="2,10,18,10">
+            <TextBlock Text="Логин:" />
+            <TextBox x:Name="UsernameTextBox" Text="{Binding Username}" materialDesign:HintAssist.Hint="Введите логин" />
+            <TextBlock Text="Пароль:" />
+            <TextBox x:Name="PasswordBox" Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" />
+
+            <Button Content="Добавить пользователя" Command="{Binding AddUserCommand}" Margin="0,20,0,0" Style="{StaticResource MaterialDesignRaisedButton}" />
+
+        </StackPanel>
+
+        <!-- Правая сторона -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="Фамилия:" />
+            <TextBox x:Name="SurnameTextBox" Text="{Binding Surname}" materialDesign:HintAssist.Hint="Введите фамилию" />
+            <TextBlock Text="Имя:" />
+            <TextBox x:Name="NameTextBox" Text="{Binding Name}" materialDesign:HintAssist.Hint="Введите имя" />
+            <TextBlock Text="Отчество:" />
+            <TextBox x:Name="PatronymicTextBox" Text="{Binding Patronymic}" materialDesign:HintAssist.Hint="Введите отчество" />
+            <TextBlock Text="Телефон:" />
+            <TextBox x:Name="PhoneNumberTextBox" Text="{Binding PhoneNumber}" materialDesign:HintAssist.Hint="Введите телефон" />
+            <TextBlock Text="СНИЛС:" />
+            <TextBox x:Name="SNILSTextBox" Text="{Binding SNILS}" materialDesign:HintAssist.Hint="Введите СНИЛС" />
+            <Button Content="Добавить пациента" Command="{Binding AddPatientCommand}" Margin="0,10,0,0" Style="{StaticResource MaterialDesignRaisedButton}" />
+        </StackPanel>
+        <TextBlock Text="{Binding ResultTextBlock}" Margin="110,295,110,46" Foreground="Red" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
